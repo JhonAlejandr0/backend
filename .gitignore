@@ -1,0 +1,14 @@
+# Ignorar dependencias de Node.js en backend y frontend
+node_modules/
+
+# Ignorar archivos de lock (opcional, dependiendo de tu política de versionado)
+
+/package-lock.json
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos temporales o de entorno
+*.log
+*.tmp
