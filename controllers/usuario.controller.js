@@ -165,7 +165,7 @@ class UsuarioController {
         from: "Panaderia - <panaderiaajms@gmail.com>",
         to: correo,
         subject: "Recuperación de contraseña",
-        html: `<a href="http://localhost:3000/Recuperar/${token}">Click aquí para recuperar tu contraseña</a>`,
+        html: `<a href="https://frontend-five-topaz-76.vercel.app/Recuperar/${token}">Click aquí para recuperar tu contraseña</a>`,
       });
       res.status(200).json({ message: "Token actualizado correctamente" });
     } catch (error) {
