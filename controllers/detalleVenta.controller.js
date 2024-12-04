@@ -22,7 +22,7 @@ class DetalleVentaController {
         return res.status(404).json({ message: "Pedido no encontrado" });
       }
       const obtenerCliente = await Cliente.findOne({
-        where: { idCliente: obtenerPedido.dataValues.idClienteFK },
+        where: { documento: obtenerPedido.dataValues.documentoFK },
       });
       const obtenerUsuario = await Usuario.findOne({
         where: { documento },

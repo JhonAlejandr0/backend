@@ -2,6 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import { sequelize } from "../config/db.js";
 import Domiciliario from "./domiciliario.model.js";
 import Cliente from "./cliente.model.js";
+import Usuario from "./usuario.model.js";
 class Pedido extends Model {}
 
 Pedido.init(
@@ -16,11 +17,11 @@ Pedido.init(
       type: DataTypes.ENUM("Pendiente", "En camino", "Completado", "Cancelado"),
       defaultValue: "Pendiente",
     },
-    idClienteFK: {
+    documentoFK: {
       type: DataTypes.INTEGER,
       references: {
-        model: Cliente,
-        key: "idCliente",
+        model: Usuario,
+        key: "documento",
       },
       onDelete: "CASCADE",
     },

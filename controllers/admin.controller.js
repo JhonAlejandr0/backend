@@ -24,7 +24,7 @@ class AdminController {
       const formatoVentas = [];
       for (const venta of buscarVentas) {
         const cliente = await Cliente.findOne({
-          where: { idCliente: venta.idClienteFK },
+          where: { documento: venta.documentoFK },
         });
         const buscarUsuario = await Usuario.findOne({
           where: { documento: cliente.documentoFK },

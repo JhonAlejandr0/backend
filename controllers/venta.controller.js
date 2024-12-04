@@ -23,7 +23,7 @@ class VentaController {
       const nuevoPedido = await Pedido.create({
         fechaPedido: new Date(),
         estadoPedido: "Pendiente",
-        idClienteFK: cliente.idCliente,
+        documento: usuario.documento,
         direccion: usuario.direccion,
         pago: Math.floor(Math.random() * (20000 - 5000 + 1)) + 5000,
       });
@@ -32,7 +32,7 @@ class VentaController {
       const nuevaVenta = await Venta.create({
         fechaVenta: new Date(),
         metodoPagoVenta: metodosPago,
-        idClienteFK: cliente.idCliente,
+        documento: usuario.documento,
         estadoVenta: "Pendiente",
         idPedidoFK: nuevoPedido.idPedido,
         valorTotal: valorTotal,
@@ -67,14 +67,14 @@ class VentaController {
     const { documento } = req.params;
 
     try {
-      const cliente = await Cliente.findOne({
+      const usuario = await Usuario.findOne({
         where: { documentoFk: documento },
       });
-      if (!cliente) {
+      if (!usuario) {
         return res.status(404).json({ message: "Cliente no encontrado" });
       }
       const pedidos = await Venta.findAll({
-        where: { idClienteFK: cliente.idCliente },
+        where: { documento: usuario.documento },
       });
 
       const formatoPedido = [];

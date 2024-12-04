@@ -12,7 +12,7 @@ Venta.init(
     },
     fechaVenta: DataTypes.DATE,
     metodoPagoVenta: DataTypes.STRING,
-    idClienteFK: DataTypes.INTEGER,
+    documentoFK: DataTypes.INTEGER,
     estadoVenta: {
       type: DataTypes.ENUM("Pendiente", "En camino", "Completado", "Cancelada"),
       defaultValue: "Pendiente",

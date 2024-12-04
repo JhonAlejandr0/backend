@@ -129,9 +129,9 @@ class DomiciliarioController {
             idPedidoFK: pedido.idPedido,
           },
         });
-        const cliente = await Cliente.findOne({
+        const usuarios = await usuario.findOne({
           where: {
-            idCliente: venta.idClienteFK,
+            documento: venta.documentoFK,
           },
         });
         const usuario = await Usuario.findOne({
@@ -173,7 +173,7 @@ class DomiciliarioController {
         { estadoVenta: "Completado" },
         {
           where: {
-            idClienteFK: pedido.idClienteFK,
+            documento: pedido.documento,
           },
         }
       );
@@ -203,7 +203,7 @@ class DomiciliarioController {
         { estadoVenta: "Cancelado" },
         {
           where: {
-            idClienteFK: pedido.idClienteFK,
+            documento: pedido.documento,
           },
         }
       );
